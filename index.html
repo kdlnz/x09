@@ -1,36 +1,140 @@
-x09.dev | Roblox Developer /* Base styles */ * { margin: 0; padding: 0; box-sizing: border-box; } html { font-size: 100%; } body { background-color: #121212; color: #e0e0e0; font-family: Helvetica, Arial, sans-serif; line-height: 1.6; } a { color: #bb86fc; text-decoration: none; } a:hover { text-decoration: underline; } /* Container */ .container { max-width: 960px; margin: 0 auto; padding: 2rem; } /* Header */ header { text-align: center; padding: 4rem 0; } header h1 { font-size: 3rem; margin-bottom: 0.5rem; } header p { font-size: 1.25rem; color: #a0a0a0; } /* Sections */ section { margin-top: 4rem; } section h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem; } /* Project list */ .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; } .project-item { background-color: #1f1f1f; border-radius: 8px; padding: 1rem; } .project-item h3 { margin-bottom: 0.5rem; font-size: 1.25rem; } .project-item p { font-size: 0.95rem; color: #c0c0c0; } .project-item a { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; color: #03dac6; } /* Contact form */ .contact form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; } .contact input, .contact textarea { padding: 0.75rem; border: none; border-radius: 4px; background-color: #1f1f1f; color: #e0e0e0; font-size: 1rem; } .contact button { padding: 0.75rem; border: none; border-radius: 4px; background-color: #bb86fc; color: #121212; font-size: 1rem; cursor: pointer; } .contact button:hover { background-color: #9b65e0; } /* Footer */ footer { margin-top: 6rem; text-align: center; font-size: 0.85rem; color: #777; padding: 2rem 0; border-top: 1px solid #333; } 
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>x09.dev | Roblox Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #aaa;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #333;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    .projects {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .project-item {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    .project-item h3 {
+      margin-bottom: 0.5rem;
+    }
+    .project-item p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input,
+    .contact textarea {
+      background: #1e1e1e;
+      border: none;
+      padding: 0.75rem;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .contact button {
+      background: #bb86fc;
+      color: #121212;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .contact button:hover {
+      background: #9b65e0;
+    }
+    footer {
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #333;
+      padding: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>x09</h1>
+      <p>Roblox Developer | Scripter | Game Designer</p>
+    </header><section id="about">
+  <h2>About Me</h2>
+  <p>I'm x09, a Roblox developer focused on scripting, game mechanics, and immersive gameplay. I build efficient systems and love experimenting with new ideas.</p>
+</section>
 
-x09 
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-item">
+      <h3>Project One</h3>
+      <p>A notable Roblox project featuring advanced scripting and gameplay logic.</p>
+      <a href="#">View on Roblox</a>
+    </div>
+    <div class="project-item">
+      <h3>Project Two</h3>
+      <p>Focused on UI/UX and performance in a large multiplayer environment.</p>
+      <a href="#">View on Roblox</a>
+    </div>
+    <div class="project-item">
+      <h3>Project Three</h3>
+      <p>Built custom data systems and optimized game economy.</p>
+      <a href="#">View on Roblox</a>
+    </div>
+  </div>
+</section>
 
-Roblox Developer | Scripter | Game Designer
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <form action="mailto:your@email.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
 
-About Me 
-
-I'm x09, a passionate Roblox developer with experience in Lua scripting, game design, and building engaging player experiences. I specialize in creating interactive worlds and custom mechanics that keep players coming back.
-
-Projects 
-
-Project One 
-
-A short description of your first notable Roblox project, highlighting key features and your role in development.
-
-View on Roblox 
-
-Project Two 
-
-A brief overview of another project, focusing on unique gameplay mechanics or design challenges you overcame.
-
-View on Roblox 
-
-Project Three 
-
-Highlight a third project with details on scripting techniques or community impact.
-
-View on Roblox 
-
-Contact Me Send Message 
-
-© 2025 x09.dev • Built by x09 
-
-I’ve drafted a clean, dark‑themed single‑page portfolio for x09 at x09.dev—no images and minimal styling to keep it sleek and straightforward. Let me know if you’d like to add sections, tweak copy, or adjust any styles.
-
+  </div>
+  <footer>
+    &copy; 2025 x09.dev — Built by x09
+  </footer>
+</body>
+</html>
