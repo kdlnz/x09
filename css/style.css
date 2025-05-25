@@ -1,0 +1,1177 @@
+/* Global stylesheet for x09.dev portfolio */
+:root {
+  --bg-primary: #121212; /* Slightly lighter dark background */
+  --bg-secondary: #1E1E1E; /* Slightly lighter secondary background */
+  --text-primary: #E0E0E0; /* Slightly softer white text */
+  --text-secondary: #B0B0B0; /* Lighter grey for secondary text */
+  --accent: #7F5AF0; /* Slightly desaturated accent */
+  --accent-rgb: 127, 90, 240; /* RGB version of accent for opacity */
+  --accent-hover: #6A48D8; /* Darker accent hover */
+  --border-radius: 10px; /* Standardized border radius */
+  --transition: all 0.25s ease-in-out; /* Faster, smoother transition */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Increased side padding for more whitespace */
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(15, 15, 19, 0.8);
+  backdrop-filter: blur(8px); /* Slightly less blur for performance */
+  z-index: 1000; /* Ensure nav is always on top */
+  padding: 1.2rem 0; /* Slightly increased padding */
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+}
+
+.nav-scrolled {
+  background-color: rgba(18, 18, 18, 0.85); /* Darker background on scroll */
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px; /* Increased padding for hero */
+  background: linear-gradient(45deg, var(--bg-primary), #2c2c3e, var(--bg-primary)); /* Subtle gradient */
+  background-size: 400% 400%;
+  animation: heroGradientAnimation 15s ease infinite;
+}
+
+@keyframes heroGradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  max-width: 850px; /* Slightly increased max-width */
+  text-align: center; 
+  margin: 0 auto; 
+}
+
+.hero h1 {
+  font-size: 4.8rem; /* Further increase font size */
+  margin-bottom: 1.8rem; /* Further increased margin */
+  line-height: 1.15; /* Adjusted line height for larger font */
+  font-weight: 700; 
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1.35rem; /* Further increase font size */
+  color: var(--text-secondary);
+  margin-bottom: 3rem; /* Further increased margin */
+  max-width: 700px; /* Further wider paragraph */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7; /* Improved line height for readability */
+}
+
+.hero-cta-buttons { /* Optional: if you need to style the button group */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #FFFFFF; /* Explicit white for buttons */
+  padding: 0.9rem 2.2rem; /* Slightly larger padding */
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600; /* Bolder button text */
+  transition: var(--transition);
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-4px); /* Increased hover effect */
+  box-shadow: var(--shadow-md);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--accent);
+  /* margin-left: 1.5rem; */ /* Removed specific margin if using gap in parent */
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(127, 90, 240, 0.1); /* Use accent with alpha */
+  color: var(--accent-hover);
+}
+
+/* About Section */
+section {
+  padding: 7rem 0; /* Increased section padding */
+}
+
+.section-title {
+  font-size: 3rem; /* Larger section titles */
+  margin-bottom: 4rem; /* Increased margin for section titles */
+  position: relative;
+  display: inline-block;
+  font-weight: 700; /* Bolder section titles */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%; /* Center the underline */
+  transform: translateX(-50%); /* Center the underline */
+  bottom: -15px; /* Increased spacing for underline */
+  width: 70px; /* Wider underline */
+  height: 5px; /* Thicker underline */
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg); /* Enhanced shadow */
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  border-radius: var(--border-radius); /* Apply border radius to image itself */
+}
+
+.about-image::before {
+ content: '';
+ position: absolute;
+ top: -15px; /* Adjusted position */
+ left: -15px; /* Adjusted position */
+ width: 70px; /* Adjusted size */
+ height: 70px; /* Adjusted size */
+ border-top: 5px solid var(--accent); /* Thicker border */
+ border-left: 5px solid var(--accent); /* Thicker border */
+ z-index: 1; /* Ensure pseudo-elements are above image if needed, or -1 if behind */
+ border-radius: var(--border-radius); /* Match border radius */
+}
+
+.about-image::after {
+ content: '';
+ position: absolute;
+ bottom: -15px; /* Adjusted position */
+ right: -15px; /* Adjusted position */
+ width: 70px; /* Adjusted size */
+ height: 70px; /* Adjusted size */
+ border-bottom: 5px solid var(--accent); /* Thicker border */
+ border-right: 5px solid var(--accent); /* Thicker border */
+ z-index: 1;
+ border-radius: var(--border-radius);
+}
+
+.about-text p {
+  margin-bottom: 1.8rem; /* Increased paragraph margin */
+  font-size: 1.15rem; /* Slightly larger text */
+  color: var(--text-secondary);
+  line-height: 1.7; /* Improved line height */
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Increased gap */
+  margin-top: 2.5rem; /* Increased margin */
+}
+
+.skill-tag {
+  background-color: rgba(var(--accent-rgb, 127, 90, 240), 0.15); /* Use RGB for opacity */
+  color: var(--accent);
+  padding: 0.7rem 1.3rem; /* Slightly adjusted padding for better touch targets */
+  border-radius: 25px; /* Pill shape, consistent with CTA */
+  font-size: 0.9rem; /* Standardized font size */
+  font-weight: 500;
+  transition: var(--transition);
+  border: 1px solid transparent; /* For potential hover border */
+}
+
+.skill-tag:hover {
+  background-color: rgba(var(--accent-rgb, 127, 90, 240), 0.25);
+  transform: translateY(-3px); /* Consistent hover lift */
+  border-color: rgba(var(--accent-rgb, 127, 90, 240), 0.5); /* Subtle border on hover */
+  box-shadow: var(--shadow-sm);
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Slightly larger min card width */
+  gap: 2.5rem; /* Increased gap */
+}
+
+.project-card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Slightly more visible border */
+  box-shadow: var(--shadow-sm);
+  display: flex; /* Allow flex for content alignment */
+  flex-direction: column; /* Stack image and content vertically */
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02); /* Enhanced hover: slight lift and scale */
+  box-shadow: var(--shadow-lg); 
+  border-color: rgba(127, 90, 240, 0.4); /* Slightly more prominent border on hover */
+}
+
+.project-image {
+  width: 100%;
+  height: 220px; /* Slightly increased height */
+  background-color: #2a2a35; /* Fallback color */
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: var(--border-radius); /* Match card radius */
+  border-top-right-radius: var(--border-radius); /* Match card radius */
+  /* display: flex; */ /* Remove if emoji/icon text is no longer needed */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* font-size: 3.5rem; */ 
+  /* color: var(--accent); */
+}
+
+.project-content {
+  flex-grow: 1; /* Allow content to take remaining space */
+  padding: 2rem; /* Increased padding */
+}
+
+.project-title {
+  font-size: 1.5rem; /* Larger project title */
+  margin-bottom: 0.8rem; /* Increased margin */
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 1rem; 
+  margin-bottom: 1.5rem; /* Adjusted margin */
+  line-height: 1.65; /* Slightly improved line height */
+}
+
+.project-tags {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags .tag {
+  background-color: rgba(var(--accent-rgb, 127, 90, 240), 0.1); /* Use RGB for opacity */
+  color: var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.project-tags .tag:hover {
+  background-color: rgba(var(--accent-rgb, 127, 90, 240), 0.2);
+  transform: translateY(-1px);
+}
+
+.project-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600; /* Bolder link text */
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.project-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.project-link span {
+  margin-left: 8px; /* Increased icon spacing */
+  transition: var(--transition);
+}
+
+.project-link:hover span {
+  transform: translateX(4px); /* Adjusted hover effect */
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 3.5rem; /* Slightly adjusted padding */
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem; /* Slightly increased gap */
+}
+
+.contact-info h3 {
+  font-size: 1.8rem; /* Slightly larger heading */
+  margin-bottom: 1.2rem; /* Adjusted margin */
+  color: var(--text-primary); /* Ensure primary text color */
+}
+
+.contact-info p {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem; /* Increased margin for spacing */
+  line-height: 1.7; /* Improved line height */
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Adjusted gap for potentially more links */
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1rem; /* Standardized font size */
+  padding: 0.25rem 0; /* Add some padding for better spacing */
+}
+
+.contact-link:hover {
+  color: var(--accent);
+  text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+.contact-link svg {
+  margin-right: 1rem; /* Standardized icon spacing */
+  color: var(--accent);
+  width: 24px; /* Standardized icon size */
+  height: 24px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Increased gap */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Increased gap */
+}
+
+.form-group label {
+  font-size: 1rem; /* Larger label */
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.03); /* Darker input background */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Slightly more visible border */
+  border-radius: var(--border-radius); /* Consistent border radius */
+  padding: 1.2rem; /* Increased padding */
+  color: var(--text-primary);
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(127, 90, 240, 0.15); /* Adjusted focus shadow */
+}
+
+textarea.form-control {
+  min-height: 180px; /* Taller textarea */
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  padding: 1.2rem; /* Increased padding */
+  border-radius: var(--border-radius);
+  font-weight: 600; /* Bolder text */
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.05rem; /* Slightly larger font */
+  box-shadow: var(--shadow-sm);
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-primary); /* Use primary for footer as well for consistency */
+  padding: 4rem 0; /* Increased padding */
+  text-align: center;
+  margin-top: 6rem; /* Increased top margin */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle top border */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem; /* Increased margin */
+}
+
+.footer-logo {
+  font-size: 1.8rem; /* Larger footer logo */
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2.5rem; /* Increased gap */
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1rem; /* Standardize font size */
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  color: var(--text-secondary);
+  font-size: 0.95rem; /* Slightly larger text */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* More visible border */
+  padding-top: 2.5rem; /* Increased padding */
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 1.5rem; /* Adjust container padding for tablets */
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem; /* Adjusted gap */
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem; /* Adjusted gap */
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem; /* Adjusted font size */
+  }
+  .section-title {
+    font-size: 2.5rem; /* Adjusted font size */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    height: 100vh;
+    width: 80%; /* Wider mobile menu */
+    max-width: 320px; /* Max width for mobile menu */
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.35s ease-in-out; /* Smoother transition for nav */
+    z-index: 998; /* Ensure it's below mobile toggle if toggle is outside */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Add shadow to mobile menu */
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .mobile-nav-toggle {
+    display: block;
+    z-index: 999; /* Ensure toggle is on top */
+    font-size: 1.8rem; /* Larger toggle icon */
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem; /* Adjusted gap */
+  }
+  
+  .section-title {
+    font-size: 2.2rem; /* Adjusted font size */
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem; /* Adjusted font size */
+  }
+  .hero p {
+    font-size: 1.15rem; /* Adjusted font size */
+  }
+  .cta-button {
+    padding: 0.8rem 1.8rem; /* Adjust button padding */
+    font-size: 0.95rem;
+  }
+  .cta-button.secondary {
+    margin-left: 0;
+    margin-top: 1.2rem; /* Adjusted margin */
+  }
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single column for projects on small screens */
+  }
+  .contact-section {
+    padding: 2.5rem; /* Adjust padding for contact section */
+  }
+}
+
+/* Page-specific Content Styling */
+.page-content {
+  padding-top: 6rem; /* Space below fixed navbar */
+  padding-bottom: 6rem; /* Space above footer */
+}
+
+.page-title {
+  font-size: 3.5rem; /* Large, prominent title */
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1.5rem; /* Space below title */
+  position: relative;
+}
+
+.page-title::after { /* Subtle underline effect */
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1rem; /* Space between text and underline */
+  width: 100px; /* Width of the underline */
+  height: 4px; /* Thickness of the underline */
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* Blog Page Specific Styles */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Space between blog posts */
+  max-width: 800px; /* Constrain width of blog list for readability */
+  margin: 0 auto; /* Center the blog list */
+}
+
+.blog-post-summary {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.blog-post-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blog-post-summary .post-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-summary .post-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.blog-post-summary .post-title a:hover {
+  color: var(--accent);
+}
+
+.blog-post-summary .post-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-summary .post-excerpt p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-summary .read-more-btn {
+  display: inline-block; /* Ensure it doesn't take full width */
+  padding: 0.7rem 1.5rem; /* Slightly smaller padding for card context */
+  font-size: 0.9rem; /* Slightly smaller font */
+}
+
+
+/* TOS Page Specific Styles */
+/* ... (existing TOS styles) ... */
+
+/* 404 Page Specific Styles */
+.error-404-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* To prevent scrollbars from particle overflow if any */
+}
+
+.error-404-page .container { /* Override global .container for centering on 404 page */
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  position: relative; /* For z-index stacking with particles */
+  z-index: 2;
+  margin: 0 auto; /* Ensure it's centered if flex settings on body change */
+}
+
+.error-404-page .glitch-wrapper {
+  width: 100%;
+  /* height: 100%; */ /* Can be problematic, adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem; /* Reduced margin */
+  position: relative;
+}
+
+.error-404-page .glitch {
+  position: relative;
+  font-size: 7rem; /* Slightly reduced for responsiveness */
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 3px; /* Slightly reduced */
+  z-index: 1;
+}
+
+.error-404-page .glitch:before, 
+.error-404-page .glitch:after {
+  content: "404";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary); /* To hide original text during glitch */
+  overflow: hidden;
+}
+
+.error-404-page .glitch:before {
+  left: 3px; /* Adjusted offset */
+  text-shadow: -2px 0 var(--accent-hover); /* Use a theme color */
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.error-404-page .glitch:after {
+  left: -3px; /* Adjusted offset */
+  text-shadow: 2px 0 rgba(255,0,255,0.7); /* Different theme or glitch color */
+  clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+  animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
+}
+
+.error-404-page .error-title {
+  font-size: 2.2rem; /* Adjusted size */
+  font-weight: 600;
+  margin: 1rem 0 1.5rem;
+  color: var(--text-primary);
+}
+
+.error-404-page .error-message {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem; /* Increased margin */
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.error-404-page .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* .cta-button styles from global will apply, no need to redefine .button */
+
+.error-404-page .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Behind main content */
+  overflow: hidden; /* Ensure particles don't cause scroll */
+}
+
+.error-404-page .particle {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  /* width: 5px; */ /* Defined in JS */
+  /* height: 5px; */ /* Defined in JS */
+  background-color: var(--accent);
+  border-radius: 50%;
+  /* opacity: 0.2; */ /* Defined in JS */
+  animation: fall linear infinite;
+}
+
+/* Keyframes for 404 page - these are global but primarily used by 404 page elements */
+/* @keyframes float is not used by current 404 glitch text, but was in original, can be removed if not needed */
+/*
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+*/
+
+@keyframes fall {
+  0% {
+    transform: translateY(-150px) rotate(0deg); /* Start further up */
+    opacity: 0;
+  }
+  5% { /* Appear quicker */
+    opacity: 0.5;
+  }
+  80% { /* Stay visible longer */
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg); /* Ensure they fall off screen */
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); }
+  10% { clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%); }
+  20% { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+  30% { clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%); }
+  40% { clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%); }
+  50% { clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%); }
+  60% { clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%); }
+  70% { clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%); }
+  80% { clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%); }
+  90% { clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%); }
+  100% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: polygon(0 67%, 100% 67%, 100% 70%, 0 70%); }
+  10% { clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%); }
+  20% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+  30% { clip-path: polygon(0 78%, 100% 78%, 100% 78%, 0 78%); }
+  40% { clip-path: polygon(0 55%, 100% 55%, 100% 55%, 0 55%); }
+  50% { clip-path: polygon(0 33%, 100% 33%, 100% 40%, 0 40%); }
+  60% { clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%); }
+  70% { clip-path: polygon(0 15%, 100% 15%, 100% 25%, 0 25%); }
+  80% { clip-path: polygon(0 5%, 100% 5%, 100% 10%, 0 10%); }
+  90% { clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%); }
+  100% { clip-path: polygon(0 10%, 100% 10%, 100% 15%, 0 15%); }
+}
+
+/* Responsive adjustments for 404 page */
+@media (max-width: 768px) {
+  .error-404-page .glitch {
+    font-size: 5rem; /* Further reduce for small screens */
+  }
+  .error-404-page .error-title {
+    font-size: 1.8rem; /* Adjust title size */
+  }
+  .error-404-page .buttons {
+    flex-direction: column; /* Stack buttons */
+  }
+  .error-404-page .cta-button { /* Ensure full width for stacked buttons */
+    width: 100%;
+    max-width: 300px; /* Optional: max-width for very small screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+.tos-page .container {
+  max-width: 1000px; /* Specific container width for TOS */
+  padding-top: 4rem; /* Add padding to top for navbar */
+  padding-bottom: 4rem; /* Add padding to bottom */
+}
+
+.tos-page header {
+  text-align: center;
+  padding: 2rem 0; /* Adjusted padding */
+  margin-bottom: 2rem;
+}
+
+.tos-page header h1 {
+  font-size: 3rem; /* Consistent with section titles */
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.tos-page header p {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.tos-page .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.tos-page .logo {
+  font-size: 2rem; /* Adjusted logo size */
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.tos-page .logo svg {
+  margin-right: 0.75rem;
+  width: 28px; /* Adjusted icon size */
+  height: 28px;
+}
+
+.tos-page .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem; /* Increased margin */
+}
+
+.tos-page .tab-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.tos-page .tab-btn:hover {
+  background-color: rgba(127, 90, 240, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tos-page .tab-btn.active {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+.tos-page .tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateY(10px);
+}
+
+.tos-page .tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tos-page .legal-container {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 3rem; /* Increased padding */
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 3rem;
+}
+
+.tos-page .section-heading {
+  color: var(--accent);
+  font-size: 1.8rem; /* Adjusted size */
+  margin: 2.5rem 0 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.tos-page .section-heading:first-child {
+  margin-top: 0;
+}
+
+.tos-page p, 
+.tos-page ul, 
+.tos-page ol {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem; /* Consistent text size */
+  line-height: 1.7;
+}
+
+.tos-page ul, 
+.tos-page ol {
+  margin-left: 1.8rem; /* Adjusted list indentation */
+}
+
+.tos-page li {
+  margin-bottom: 0.8rem; /* Adjusted list item margin */
+}
+
+.tos-page strong { /* Ensure strong tags inherit primary text color */
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.tos-page em { /* Ensure em tags inherit primary text color or a distinct style */
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.tos-page a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.tos-page a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover);
+}
+
+/* Table of Contents for TOS */
+.tos-page .toc {
+  background-color: rgba(255, 255, 255, 0.03); /* Slightly darker ToC background */
+  border-radius: var(--border-radius);
+  padding: 2rem; /* Increased padding */
+  margin-bottom: 2.5rem; /* Increased margin */
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.tos-page .toc-title {
+  font-size: 1.4rem; /* Larger ToC title */
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tos-page .toc-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.tos-page .toc-list a {
+  display: block;
+  padding: 0.6rem 0; /* Adjusted padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.tos-page .toc-list a:hover {
+  color: var(--accent);
+  padding-left: 0.8rem; /* Indent on hover */
+  text-decoration: none;
+}
+
+.tos-page .toc-list li:last-child a {
+  border-bottom: none;
+}
+
+.tos-page footer {
+  text-align: center;
+  padding: 3rem 0; /* Consistent with main footer */
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.tos-page footer a {
+  color: var(--accent);
+}
+
+.tos-page .back-to-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem; /* Added margin below */
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.tos-page .back-to-home:hover {
+  gap: 0.75rem;
+  color: var(--accent-hover);
+}
+
+.tos-page .back-to-home svg { /* If using SVG for back arrow */
+  width: 20px;
+  height: 20px;
+}
+
+/* Scrollbar for TOS page - can inherit global or be specific */
+.tos-page ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tos-page ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.tos-page ::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--bg-primary);
+}
+
+.tos-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .tos-page header h1 {
+    font-size: 2.5rem;
+  }
+  .tos-page .legal-container {
+    padding: 2rem;
+  }
+  .tos-page .tabs {
+    flex-direction: column;
+    align-items: stretch; /* Full width buttons */
+  }
+  .tos-page .tab-btn {
+    width: 100%;
+    max-width: none; /* Remove max-width for full stretch */
+    margin-bottom: 0.5rem; /* Add some space between stacked buttons */
+  }
+  .tos-page .toc {
+    padding: 1.5rem;
+  }
+}
