@@ -1,3 +1,3 @@
 x09.dev
 
-website thing
+Developer portfolio for x09, a fullstack developer.
