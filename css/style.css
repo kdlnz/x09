@@ -1,17 +1,17 @@
 /* Global stylesheet for x09.dev portfolio */
 :root {
-  --bg-primary: #121212; /* Slightly lighter dark background */
-  --bg-secondary: #1E1E1E; /* Slightly lighter secondary background */
-  --text-primary: #E0E0E0; /* Slightly softer white text */
-  --text-secondary: #B0B0B0; /* Lighter grey for secondary text */
-  --accent: #7F5AF0; /* Slightly desaturated accent */
+  --bg-primary: #131313; /* Slightly lighter dark background */
+  --bg-secondary: #352da028; /* Slightly lighter secondary background */
+  --text-primary: #eeeeee; /* Slightly softer white text */
+  --text-secondary: #ffffff; /* Lighter grey for secondary text */
+  --accent: #f05a7a; /* Slightly desaturated accent */
   --accent-rgb: 127, 90, 240; /* RGB version of accent for opacity */
-  --accent-hover: #6A48D8; /* Darker accent hover */
+  --accent-hover: #e75b8a; /* Darker accent hover */
   --border-radius: 10px; /* Standardized border radius */
   --transition: all 0.25s ease-in-out; /* Faster, smoother transition */
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px rgba(240, 120, 176, 0.322);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.473);
+  --shadow-lg: 0 20px 25px rgba(94, 238, 207, 0.233);
 }
 
 * {
